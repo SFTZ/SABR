@@ -1,4 +1,4 @@
-42               ICON    "pixmaps/42.ico"
+SABR               ICON    "pixmaps/SABR.ico"
 
 #include "wx/msw/wx.rc"
 

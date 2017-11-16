@@ -39,11 +39,11 @@ uint256 nPoWBase = uint256("0x00000000ffff00000000000000000000000000000000000000
 
 CBigNum bnProofOfWorkLimitTestNet(~uint256(0) >> 16);
 
-unsigned int nStakeMinAge = 42 * nOneHour; // 42 hours as zero time weight
+unsigned int nStakeMinAge = 133 * nOneHour; // 133 hours as zero time weight
 unsigned int nStakeMaxAge = -1; // unlimited full weight
-unsigned int nStakeTargetSpacing = 7 * 60; // 7-minutes stakes spacing
-unsigned int nModifierInterval = 7 * 60; // time to elapse before new modifier is computed
-int nCoinbaseMaturity = 22;
+unsigned int nStakeTargetSpacing = 10 * 60; // 10-minutes stakes spacing
+unsigned int nModifierInterval = 10 * 60; // time to elapse before new modifier is computed
+int nCoinbaseMaturity = 113;
 
 CBlockIndex* pindexGenesisBlock = NULL;
 int nBestHeight = -1;
@@ -69,7 +69,7 @@ map<uint256, set<uint256> > mapOrphanTransactionsByPrev;
 // Constant stuff for coinbase transactions we create:
 CScript COINBASE_FLAGS;
 
-const string strMessageMagic = "42 Signed Message:\n";
+const string strMessageMagic = "SABR Signed Message:\n";
 
 // Settings
 int64_t nTransactionFee = MIN_TX_FEE;
@@ -1002,10 +1002,10 @@ int64_t GetProofOfWorkReward(int64_t nFees)
 {
     int64_t nSubsidy = 0;
 
-    if(pindexBest->nHeight <= 419)
-        nSubsidy = 10 * CENT;
+    if(pindexBest->nHeight <= 1330)
+        nSubsidy = 100000 * COIN;
 	
-    else if (pindexBest->nHeight >= 420)
+    else if (pindexBest->nHeight >= 1331)
         nSubsidy = 0 * COIN;
 	
 	if (fDebug && GetBoolArg("-printcreation"))
@@ -1025,7 +1025,7 @@ int64_t GetProofOfStakeReward(int64_t nCoinAge)
     return nSubsidy;
 }
 
-static const int64_t nTargetTimespan = 42 * 60;  // 42 minutes
+static const int64_t nTargetTimespan = 1331 * 60;  // 1331 minutes
 
 // get proof of work blocks max spacing according to hard-coded conditions
 int64_t inline GetTargetSpacingWorkMax(int nHeight, unsigned int nTime)
@@ -1560,7 +1560,7 @@ static CCheckQueue<CScriptCheck> scriptcheckqueue(128);
 
 void ThreadScriptCheck(void*) {
     vnThreadsRunning[THREAD_SCRIPTCHECK]++;
-    RenameThread("42-scriptch");
+    RenameThread("SABR-scriptch");
     scriptcheckqueue.Thread();
     vnThreadsRunning[THREAD_SCRIPTCHECK]--;
 }
@@ -1587,7 +1587,7 @@ bool CBlock::ConnectBlock(CTxDB& txdb, CBlockIndex* pindex, bool fJustCheck)
     // Now that the whole chain is irreversibly beyond that time it is applied to all blocks except the
     // two in the chain that violate it. This prevents exploiting the issue against nodes in their
     // initial block download.
-    bool fEnforceBIP30 = true; // Always active in 42
+    bool fEnforceBIP30 = true; // Always active in SABR
     bool fScriptChecks = pindex->nHeight >= Checkpoints::GetTotalBlocksEstimate();
 
     //// issue here: it doesn't know the version
@@ -2150,7 +2150,7 @@ bool CBlock::CheckBlock(bool fCheckPOW, bool fCheckMerkleRoot, bool fCheckSig) c
         if (GetBlockTime() != (int64_t)vtx[1].nTime)
             return DoS(50, error("CheckBlock() : coinstake timestamp violation nTimeBlock=%" PRId64 " nTimeTx=%u", GetBlockTime(), vtx[1].nTime));
 
-        // 42: check proof-of-stake block signature
+        // SABR: check proof-of-stake block signature
         if (fCheckSig && !CheckBlockSignature())
             return DoS(100, error("CheckBlock() : bad proof-of-stake block signature"));
 
@@ -2239,7 +2239,7 @@ bool CBlock::AcceptBlock()
         return DoS(100, error("AcceptBlock() : incorrect %s", IsProofOfWork() ? "proof-of-work" : "proof-of-stake"));
 
     int64_t nMedianTimePast = pindexPrev->GetMedianTimePast();
-    int nMaxOffset = 42 * nOneHour; // 42 hours
+    int nMaxOffset = 48 * nOneHour; // 48 hours
     if (fTestNet || pindexPrev->nTime < 1450569600)
         nMaxOffset = 7 * nOneWeek; // One week
 
@@ -2579,7 +2579,7 @@ bool CheckDiskSpace(uint64_t nAdditionalBytes)
         string strMessage = _("Warning: Disk space is low!");
         strMiscWarning = strMessage;
         printf("*** %s\n", strMessage.c_str());
-        uiInterface.ThreadSafeMessageBox(strMessage, "42", CClientUIInterface::OK | CClientUIInterface::ICON_EXCLAMATION | CClientUIInterface::MODAL);
+        uiInterface.ThreadSafeMessageBox(strMessage, "SABR", CClientUIInterface::OK | CClientUIInterface::ICON_EXCLAMATION | CClientUIInterface::MODAL);
         StartShutdown();
         return false;
     }
@@ -2656,9 +2656,9 @@ bool LoadBlockIndex(bool fAllowNew)
 
         bnProofOfWorkLimit = bnProofOfWorkLimitTestNet; // 16 bits PoW target limit for testnet
         nStakeMinAge = 1 * 60; // test net min age is 1 minute
-        nModifierInterval = 42; // test modifier interval is 42 seconds
+        nModifierInterval = 1331; // test modifier interval is 1331 seconds
         nCoinbaseMaturity = 1; // test maturity is 1(21) block
-        nStakeTargetSpacing = 42; // test block spacing is 42 seconds
+        nStakeTargetSpacing = 60; // test block spacing is 60 seconds
     }
 
     //
@@ -2676,24 +2676,24 @@ bool LoadBlockIndex(bool fAllowNew)
         if (!fAllowNew)
             return false;
 
-        const string strTimestamp = "CNN 12/Nov/2016 More than 900 migrants rescued at sea within hours";
+        const string strTimestamp = "CNN 12/Nov/2017 Trump sarcastically responds to Kim Jong Un insults";
         CTransaction txNew;
-        txNew.nTime = 1478980800;
+        txNew.nTime = 1510488000;
         txNew.vin.resize(1);
         txNew.vout.resize(1);
-        txNew.vin[0].scriptSig = CScript() << 42 << CBigNum(42) << vector<unsigned char>(strTimestamp.begin(), strTimestamp.end());
+        txNew.vin[0].scriptSig = CScript() << 1331 << CBigNum(1331) << vector<unsigned char>(strTimestamp.begin(), strTimestamp.end());
         txNew.vout[0].SetEmpty();
         CBlock block;
         block.vtx.push_back(txNew);
         block.hashPrevBlock = 0;
         block.hashMerkleRoot = block.BuildMerkleTree();
         block.nVersion = 1;
-        block.nTime    = 1478980800;
+        block.nTime    = 1510488000;
         block.nBits    = bnProofOfWorkLimit.GetCompact();
-        block.nNonce   = !fTestNet ? 1031066 : 60656;
+        block.nNonce   = !fTestNet ? 522634 : 98447;
 
         //// debug print
-        assert(block.hashMerkleRoot == uint256("0x8595bda86b1eb5c8b1830bf4c391c6d2b66adc688caf00795fbb8a5bbb0f94ce"));
+        assert(block.hashMerkleRoot == uint256("0x6cb8011378da74415f2ace6a9d302d8ee6614b9b174e58e10f98c8dec61c61ad"));
         block.print();
         assert(block.GetHash() == (!fTestNet ? hashGenesisBlock : hashGenesisBlockTestNet));
         assert(block.CheckBlock());
@@ -2999,7 +2999,7 @@ bool static AlreadyHave(CTxDB& txdb, const CInv& inv)
 // The message start string is designed to be unlikely to occur in normal data.
 // The characters are rarely used upper ASCII, not valid as UTF-8, and produce
 // a large 4-byte int at any alignment.
-unsigned char pchMessageStart[4] = { 0x1d, 0x05, 0x14, 0x0b };
+unsigned char pchMessageStart[4] = { 0x10, 0x0a, 0x13, 0x5c };
 
 bool static ProcessMessage(CNode* pfrom, string strCommand, CDataStream& vRecv)
 {

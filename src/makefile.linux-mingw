@@ -104,7 +104,7 @@ OBJS= \
     obj/cryptogram.o \
     obj/ipcollector.o
 
-all: 42d.exe
+all: SABRd.exe
 
 #
 # LevelDB support
@@ -167,12 +167,12 @@ DEFS += -DHAVE_BUILD_INFO
 obj/%.o: %.cpp $(HEADERS)
 	$(CXX) -c $(CFLAGS) -o $@ $<
 
-42d.exe: $(OBJS:obj/%=obj/%)
+SABRd.exe: $(OBJS:obj/%=obj/%)
 	$(CXX) $(CFLAGS) $(LDFLAGS) -o $@ $(LIBPATHS) $^ $(LIBS) -lshlwapi
-	$(STRIP) 42d.exe
+	$(STRIP) SABRd.exe
 
 clean:
-	-rm -f 42d.exe
+	-rm -f SABRd.exe
 	-rm -f obj/*.o
 	-rm -f obj/*.P
 	-rm -f obj/*.d

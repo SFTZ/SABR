@@ -1,3 +1,6 @@
+Copyright (c) 2017 42 Developers
+Copyright (c) 2018 SABR Developers
+
 Mac OS X Build Instructions and Notes
 =====================================
 
@@ -32,15 +35,15 @@ brew install autoconf automake pkg-config qt5
 
 brew link --force qt5
 
-4. Clone the github tree and build 42-Qt application.
+4. Clone the github tree and build SABR-Qt application.
 
-git clone https://github.com/42-coin/42.git
+git clone https://github.com/SABR-coin/SABR.git
 
-cd 42
+cd SABR
 qmake
 make
 
 5. Create the .dmg disk image:
 
 sudo easy_install appscript
-./contrib/macdeploy/macdeployqtplus 42-Qt.app -dmg -fancy ./contrib/macdeploy/fancy.plist
+./contrib/macdeploy/macdeployqtplus SABR-Qt.app -dmg -fancy ./contrib/macdeploy/fancy.plist

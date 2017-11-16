@@ -67,9 +67,9 @@ void OptionsModel::Init()
         if(fTestNet)
             settings.setValue("strThirdPartyTxUrls", "");
         else
-            settings.setValue("strThirdPartyTxUrls", "https://chainz.cryptoid.info/42/tx.dws?%s|https://prohashing.com/explorer/42/%s");
+            settings.setValue("strThirdPartyTxUrls", "");
     }
-    strThirdPartyTxUrls = settings.value("strThirdPartyTxUrls", "https://chainz.cryptoid.info/42/tx.dws?%s|https://prohashing.com/explorer/42/%s").toString();
+    strThirdPartyTxUrls = settings.value("strThirdPartyTxUrls", "").toString();
     fMinimizeToTray = settings.value("fMinimizeToTray", false).toBool();
     fMinimizeOnClose = settings.value("fMinimizeOnClose", false).toBool();
     fCoinControlFeatures = settings.value("fCoinControlFeatures", false).toBool();

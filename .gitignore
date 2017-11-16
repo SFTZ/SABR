@@ -1,5 +1,5 @@
 src/*.exe
-src/42d
+src/sabrd
 src/build.h
 .*.swp
 *.*~*
@@ -8,11 +8,11 @@ src/build.h
 *.orig
 *.o
 *.patch
-.42
+.sabr
 #compilation and Qt preprocessor part
 *.qm
 Makefile
-42-qt
+sabr-qt
 #resources cpp
 qrc_*.cpp
 #qt creator

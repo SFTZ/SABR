@@ -1,6 +1,10 @@
 Format: http://svn.debian.org/wsvn/dep/web/deps/dep5.mdwn?rev=174
-Upstream-Name: 42
-Upstream-Source: https://github.com/42-coin/42
+Upstream-Name: SABR
+Upstream-Source: https://github.com/SABR-coin/SABR
+
+Files: *
+Copyright: 2018, SABR Developers
+License: Expat
 
 Files: *
 Copyright: 2016-2017, 42 Developers

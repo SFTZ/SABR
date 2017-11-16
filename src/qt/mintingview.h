@@ -24,10 +24,9 @@ public:
     {
         Minting1day,
         Minting7days,
-        Minting42days,
+        Minting30days,
         Minting90days,
         Minting180days,
-		Minting420days,
     };
 
 private:

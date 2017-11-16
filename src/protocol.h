@@ -19,7 +19,7 @@
 extern bool fTestNet;
 inline unsigned short GetDefaultPort()
 {
-    return static_cast<unsigned short>(fTestNet ? 42420 : 4242);
+    return static_cast<unsigned short>(fTestNet ? 13310 : 1331);
 }
 
 

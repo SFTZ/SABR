@@ -1,0 +1,11 @@
+[Unit]
+Description=SABR daemon serivce
+After=network.target
+
+[Service]
+Type=simple
+User=SABR
+ExecStart=/opt/SABR/SABRd
+
+[Install]
+WantedBy=multi-user.target
