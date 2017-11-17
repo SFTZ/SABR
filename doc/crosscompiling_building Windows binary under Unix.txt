@@ -131,7 +131,7 @@ Using Qt version 5.8.0 in /home/<ваше имя>/mxe/usr/i686-w64-mingw32.stati
 -Перейдите в домашнюю папку
 -Откройте терминал:
 
-git clone https://github.com/SABR-coin/SABR.git
+git clone https://github.com/SABR-1331/SABR.git
 
 3.2 Собираем 42d 
 -Откройте файл makefile.mingw в текстовом редакторе (например, Pluma, gedit)

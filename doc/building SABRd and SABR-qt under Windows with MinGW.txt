@@ -142,7 +142,7 @@ mingw32-make
 Будем хранить исходники в папке C:\MyProjects
 
 3.1 Скачиваем исходники
--Зайдите на сайт https://github.com/SABR-coin/SABR 
+-Зайдите на сайт https://github.com/SABR-1331/SABR 
 -Нажмите Download ZIP
 -Распакуйте SABR-master.zip в C:\MyProjects
 

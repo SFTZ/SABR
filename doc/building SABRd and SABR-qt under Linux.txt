@@ -22,7 +22,7 @@ openSUSE(проверено на версии 13.2):
 
 После того, как установка завершалась, можно клонировать SABR репозитарий
 
- git clone https://github.com/SABR-coin/SABR.git
+ git clone https://github.com/SABR-1331/SABR.git
 
 и наконец, скомпилировать свой клиент
 

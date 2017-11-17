@@ -17,8 +17,8 @@ Build-Depends: debhelper,
  libqt4-dev,
  libqrencode-dev
 Standards-Version: 3.9.2
-Vcs-Git: git://github.com/SABR-coin/SABR.git
-Vcs-Browser: http://github.com/SABR-coin/SABR
+Vcs-Git: git://github.com/SABR-1331/SABR.git
+Vcs-Browser: http://github.com/SABR-1331/SABR
 
 Package: SABRd
 Architecture: any

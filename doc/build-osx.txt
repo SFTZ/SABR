@@ -37,7 +37,7 @@ brew link --force qt5
 
 4. Clone the github tree and build SABR-Qt application.
 
-git clone https://github.com/SABR-coin/SABR.git
+git clone https://github.com/SABR-1331/SABR.git
 
 cd SABR
 qmake
