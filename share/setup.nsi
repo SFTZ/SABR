@@ -6,6 +6,7 @@ SetCompressor /SOLID lzma
 # General Symbol Definitions
 !define REGKEY "SOFTWARE\$(^Name)"
 !define VERSION 0.3.0
+!define URL http://www.sabr-coin.tk/
 !define COMPANY "SABR-coin"
 
 # MUI Symbol Definitions
