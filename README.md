@@ -9,7 +9,7 @@ Specifications
 - Max money: 133100000 coins
 - Transaction confirmation method: PoS + aux.PoW
 - Transaction type: public & private
-- Number of transaction confirmation: 3
+- Number of transaction confirmation: 7
 - Number of block confirmation: 133
 - PoS reward: 0 coin
 - Min stake age: 133 hours
