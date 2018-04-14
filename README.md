@@ -1,4 +1,4 @@
-[![SABR-256.png](https://s7.postimg.org/vgkvaeror/SABR-256.png)](https://sabr-coin.org)
+[![SABR-256.png](https://s7.postimg.org/vgkvaeror/SABR-256.png)](https://sabr-coin.tk)
 
 
 SABR - a PoS based cryptocurrency.
