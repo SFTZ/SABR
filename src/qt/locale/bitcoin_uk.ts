@@ -1969,8 +1969,8 @@ Reduce the number of addresses involved in the address creation.</source>
     </message>
     <message>
         <location filename="../forms/optionsdialog.ui" line="33"/>
-        <source>Optional transaction fee per kB that helps make sure your transactions are processed quickly. Most transactions are 1 kB. Fee 0.00000001 recommended.</source>
-        <translation>Необов&apos;язкова комісія транзакції за кБ що сприятеме її швидкому обробленню. Більшість транзакцій 1кБ. Рекомендується коміся 0,00000001.</translation>
+        <source>Optional transaction fee per kB that helps make sure your transactions are processed quickly. Most transactions are 1 kB. Fee 0.0001 recommended.</source>
+        <translation>Необов&apos;язкова комісія транзакції за кБ що сприятеме її швидкому обробленню. Більшість транзакцій 1кБ. Рекомендується коміся 0,0001.</translation>
     </message>
     <message>
         <location filename="../forms/optionsdialog.ui" line="48"/>
