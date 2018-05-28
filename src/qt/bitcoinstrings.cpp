@@ -114,7 +114,7 @@ QT_TRANSLATE_NOOP("bitcoin-core", "Invalid amount for -paytxfee=<amount>: '%s'")
 QT_TRANSLATE_NOOP("bitcoin-core", "Invalid amount for -reservebalance=<amount>"),
 QT_TRANSLATE_NOOP("bitcoin-core", "Invalid amount"),
 QT_TRANSLATE_NOOP("bitcoin-core", "List commands"),
-QT_TRANSLATE_NOOP("bitcoin-core", "Listen for connections on <port> (default: SABRSABR or testnet: SABRSABR0)"),
+QT_TRANSLATE_NOOP("bitcoin-core", "Listen for connections on <port> (default: 1331 or testnet: 13310)"),
 QT_TRANSLATE_NOOP("bitcoin-core", "Loading addresses..."),
 QT_TRANSLATE_NOOP("bitcoin-core", "Loading block index..."),
 QT_TRANSLATE_NOOP("bitcoin-core", "Loading wallet..."),
