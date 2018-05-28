@@ -18,8 +18,8 @@ using namespace std;
 
 
 // Protocol switch time for fixed kernel modifier interval
-unsigned int nModifierSwitchTime  = 1512648000;    // Thu, 7 Dec 2016 12:00:00 GMT
-unsigned int nModifierTestSwitchTime = 1512648000; // Thu, 7 Dec 2016 12:00:00 GMT
+unsigned int nModifierSwitchTime  = 1512648000;    // Thu, 7 Dec 2017 12:00:00 GMT
+unsigned int nModifierTestSwitchTime = 1512648000; // Thu, 7 Dec 2017 12:00:00 GMT
 
 // Note: user must upgrade before the protocol switch deadline, otherwise it's required to
 //   re-download the blockchain. The timestamp of upgrade is recorded in the blockchain 
