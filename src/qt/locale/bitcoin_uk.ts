@@ -3883,8 +3883,8 @@ rpcpassword=%s
     </message>
     <message>
         <location filename="../bitcoinstrings.cpp" line="46"/>
-        <source>Listen for JSON-RPC connections on &lt;port&gt; (default: 2121 or testnet: 21210)</source>
-        <translation>Прослуховувати &lt;port&gt; для JSON-RPC з&apos;єднань (типово: 2121, для тестової мережі: 21210)</translation>
+        <source>Listen for JSON-RPC connections on &lt;port&gt; (default: 2662 or testnet: 26620)</source>
+        <translation>Прослуховувати &lt;port&gt; для JSON-RPC з&apos;єднань (типово: 2662, для тестової мережі: 26620)</translation>
     </message>
     <message>
         <location filename="../bitcoinstrings.cpp" line="48"/>
