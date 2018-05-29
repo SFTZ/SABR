@@ -146,7 +146,7 @@ mingw32-make
 -Нажмите Download ZIP
 -Распакуйте SABR-master.zip в C:\MyProjects
 
-3.2 Собираем 42d 
+3.2 Собираем SABRd 
 -Перейдите в папку C:\MyProjects\SABR-master\src
 -Откройте файл makefile.mingw в текстовом редакторе.(При написании инструкции использовался WordPad)
 -Добавьте  строчку USE_ASM:=1
@@ -162,7 +162,7 @@ USE_LEVELDB:=1
 
 cd /c/MyProjects/SABR-master/src
 make -f makefile.mingw
-strip 42d.exe
+strip SABRd.exe
 
 Если у вас возникает ошибка "make: cc: Command not found", то поменяйте в файле makefile.mingw
 
@@ -170,12 +170,12 @@ strip 42d.exe
 на
  gcc -c $(xCXXFLAGS) -MMD -o $@ $<
 
-Если всё сделано правильно, то файл 42d.exe будет находится в папке C:\MyProjects\SABR-master\src 
+Если всё сделано правильно, то файл SABRd.exe будет находится в папке C:\MyProjects\SABR-master\src 
 
 
 3.3 Собираем SABR QT
 
-Внимание: Если вы хотите собирать SABR Qt с LevelDB, но пропустили шаг со сборкой 42d.exe, то 
+Внимание: Если вы хотите собирать SABR Qt с LevelDB, но пропустили шаг со сборкой SABRd.exe, то 
 -Откройте MinGW shell (C:\MinGW\msys\1.0\msys.bat) и выполните следующий код:
 
 cd /c/myprojects/SABR-master/src/leveldb
@@ -260,11 +260,11 @@ mingw32-make -f Makefile.Release
 2) Скачайте программу в соответсвии с вашей системой
 3) Распакуйте программу в папку с бинарными SABR файлами.
 4) Введите в консоли
-upx -9 42d.exe
+upx -9 SABRd.exe
 затем
 upx -9 SABR-qt.exe
 
-И ваши 42d и SABR-qt станут меньше ~ в 3 раза.
+И ваши SABRd и SABR-qt станут меньше ~ в 3 раза.
 
 
 
@@ -368,7 +368,7 @@ mingw32-make
 
 3.1 Так же как 32 bit
 
-3.2 Собираем 42d 
+3.2 Собираем SABRd 
 -Измените makefile.mingw так же как в 32 bit
 -Откройте файл makefile.mingw в текстовом редакторе и сохраните его как makefile.ming64
 -Измените в INCLUDEPATHS и LIBPATHS /c/deps/ на /c/deps/x64/
@@ -388,13 +388,13 @@ C:\MyProjects\SABR-master\src\leveldb\util
 
 cd /c/MyProjects/SABR-master/src
 make -f makefile.mingw64
-strip 42d.exe
+strip SABRd.exe
 
-Если всё сделано правильно, то файл 42d.exe будет находится в папке C:\MyProjects\SABR-master\src 
+Если всё сделано правильно, то файл SABRd.exe будет находится в папке C:\MyProjects\SABR-master\src 
 
 
 3.3 Собираем SABR QT
-Внимание: Если вы хотите собирать SABR Qt с LevelDB, но пропустили шаг со сборкой 42d.exe, то 
+Внимание: Если вы хотите собирать SABR Qt с LevelDB, но пропустили шаг со сборкой SABRd.exe, то 
 -Удалите (если они есть)libleveldb.a и libmemenv.a в папке C:\MyProjects\SABR-master\src\leveldb
 -Удалите (если они есть)obj(.o) файлы из 
 C:\MyProjects\SABR-master\src\leveldb\db 
@@ -453,8 +453,8 @@ mingw32-make -f Makefile.Release
 2) Скачайте программу в соответсвии с вашей системой
 3) Распакуйте программу в папку с бинарными SABR файлами.
 4) Введите в консоли
-upx -9 42d.exe
+upx -9 SABRd.exe
 затем
 upx -9 SABR-qt.exe
 
-И ваши 42d и SABR-qt станут меньше ~ в 3 раза.
+И ваши SABRd и SABR-qt станут меньше ~ в 3 раза.
