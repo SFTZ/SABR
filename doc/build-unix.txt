@@ -65,21 +65,21 @@ If using Boost 1.37, append -mt to the boost libraries in the makefile.
 Dependency Build Instructions: Gentoo
 -------------------------------------
 
-Note: If you just want to install 42d on Gentoo, you can add the SABR
+Note: If you just want to install SABRd on Gentoo, you can add the SABR
       overlay and use your package manager:
-          layman -a SABR && emerge 42d
+          layman -a SABR && emerge SABRd
 
 emerge -av1 --noreplace boost glib openssl sys-libs/db:4.8
 
 Take the following steps to build:
- cd ${42_DIR}/src
+ cd ${SABR_DIR}/src
  make -f makefile.unix BDB_INCLUDE_PATH='/usr/include/db4.8'
- strip 42d
+ strip SABRd
 
 
 Notes
 -----
-The release is built with GCC and then "strip 42d" to strip the debug
+The release is built with GCC and then "strip SABRd" to strip the debug
 symbols, which reduces the executable size by about 90%.
 
 Berkeley DB
