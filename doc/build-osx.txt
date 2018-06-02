@@ -1,5 +1,5 @@
 Copyright (c) 2017 42 Developers
-Copyright (c) 2018 SABR Developers
+Copyright (c) 2018 SFTZ Developers
 
 Mac OS X Build Instructions and Notes
 =====================================
@@ -35,15 +35,15 @@ brew install autoconf automake pkg-config qt5
 
 brew link --force qt5
 
-4. Clone the github tree and build SABR-Qt application.
+4. Clone the github tree and build SFTZ-Qt application.
 
-git clone https://github.com/SABR-1331/SABR.git
+git clone https://github.com/SFTZ/SFTZ.git
 
-cd SABR
+cd SFTZ
 qmake
 make
 
 5. Create the .dmg disk image:
 
 sudo easy_install appscript
-./contrib/macdeploy/macdeployqtplus SABR-Qt.app -dmg -fancy ./contrib/macdeploy/fancy.plist
+./contrib/macdeploy/macdeployqtplus SFTZ-Qt.app -dmg -fancy ./contrib/macdeploy/fancy.plist

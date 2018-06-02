@@ -1,16 +1,16 @@
-TOR SUPPORT IN SABR
+TOR SUPPORT IN SFTZ
 ======================
 
-It is possible to run SABR as a Tor hidden service, and connect to such services.
+It is possible to run SFTZ as a Tor hidden service, and connect to such services.
 
 The following directions assume you have a Tor proxy running on port 9050. Many distributions default to having a SOCKS proxy listening on port 9050, but others may not. In particular, the Tor Browser Bundle defaults to listening on a random port. See [Tor Project FAQ:TBBSocksPort](https://www.torproject.org/docs/faq.html.en#TBBSocksPort) for how to properly
 configure Tor.
 
 
-1. Run SABR behind a Tor proxy
+1. Run SFTZ behind a Tor proxy
 ---------------------------------
 
-The first step is running SABR behind a Tor proxy. This will already make all
+The first step is running SFTZ behind a Tor proxy. This will already make all
 outgoing connections be anonymized, but more is possible.
 
 	-proxy=ip:port  Set the proxy server. If SOCKS5 is selected (default), this proxy
@@ -31,27 +31,27 @@ outgoing connections be anonymized, but more is possible.
 
 In a typical situation, this suffices to run behind a Tor proxy:
 
-	./SABR -proxy=127.0.0.1:9050
+	./SFTZ -proxy=127.0.0.1:9050
 
 
-2. Run a SABR hidden server
+2. Run a SFTZ hidden server
 ------------------------------
 
 If you configure your Tor system accordingly, it is possible to make your node also
 reachable from the Tor network. Add these lines to your /etc/tor/torrc (or equivalent
 config file):
 
-	HiddenServiceDir /var/lib/tor/SABR-service/
-	HiddenServicePort SABRSABR 127.0.0.1:1331
-	HiddenServicePort SABRSABR0 127.0.0.1:13310
+	HiddenServiceDir /var/lib/tor/SFTZ-service/
+	HiddenServicePort SFTZSFTZ 127.0.0.1:8291
+	HiddenServicePort SFTZSFTZ0 127.0.0.1:82910
 
 The directory can be different of course, but (both) port numbers should be equal to
-your SABRd's P2P listen port (1331 by default, 13310 by default for testnet).
+your SFTZd's P2P listen port (8291 by default, 82910 by default for testnet).
 
-	-externalip=X   You can tell SABR about its publicly reachable address using
+	-externalip=X   You can tell SFTZ about its publicly reachable address using
 	                this option, and this can be a .onion address. Given the above
 	                configuration, you can find your onion address in
-	                /var/lib/tor/SABR-service/hostname. Onion addresses are given
+	                /var/lib/tor/SFTZ-service/hostname. Onion addresses are given
 	                preference for your node to advertize itself with, for connections
 	                coming from unroutable addresses (such as 127.0.0.1, where the
 	                Tor proxy typically runs).
@@ -68,17 +68,17 @@ your SABRd's P2P listen port (1331 by default, 13310 by default for testnet).
 
 In a typical situation, where you're only reachable via Tor, this should suffice:
 
-	./SABRd -proxy=127.0.0.1:9050 -externalip=youraddress.onion -listen
+	./SFTZd -proxy=127.0.0.1:9050 -externalip=youraddress.onion -listen
 
 (obviously, replace the Onion address with your own). If you don't care too much
 about hiding your node, and want to be reachable on IPv4 as well, additionally
 specify:
 
-	./SABRd ... -discover
+	./SFTZd ... -discover
 
-and open port SABRSABR on your firewall.
+and open port SFTZSFTZ on your firewall.
 
 If you only want to use Tor to reach onion addresses, but not use it as a proxy
 for normal IPv4/IPv6 communication, use:
 
-	./SABR -onion=127.0.0.1:9050 -externalip=youraddress.onion -discover
+	./SFTZ -onion=127.0.0.1:9050 -externalip=youraddress.onion -discover

@@ -1,24 +1,24 @@
 #!/bin/sh
 ### BEGIN INIT INFO
-# Provides:          SABRd
+# Provides:          SFTZd
 # Required-Start:    $network
 # Required-Stop:     $network
 # Default-Start:     2 3 4 5
 # Default-Stop:      0 1 6
-# Short-Description: SABRd daemon startup script
-# Description:       SABRd daemon startup script
+# Short-Description: SFTZd daemon startup script
+# Description:       SFTZd daemon startup script
 ### END INIT INFO
 
 # Do NOT "set -e"
 
 # PATH should only include /usr/* if it runs after the mountnfs.sh script
 PATH=/sbin:/usr/sbin:/bin:/usr/bin
-DESC="SABR Daemon"
-NAME=SABRd
-DAEMON=/opt/SABR/$NAME
+DESC="SFTZ Daemon"
+NAME=SFTZd
+DAEMON=/opt/SFTZ/$NAME
 PIDFILE=/var/run/$NAME.pid
 SCRIPTNAME=/etc/init.d/$NAME
-CHUID=SABR:SABR
+CHUID=SFTZ:SFTZ
 DAEMON_ARGS="-daemon -pid=$PIDFILE"
 
 # Exit if the package is not installed

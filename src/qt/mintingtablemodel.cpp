@@ -225,7 +225,7 @@ MintingTableModel::MintingTableModel(CWallet *wallet, WalletModel *parent):
         mintingInterval(10),
         priv(new MintingTablePriv(wallet, this))
 {
-    columns << tr("Transaction") <<  tr("Address") << tr("Balance") << tr("Age") << tr("CoinDay") << tr("MintProbability");
+    columns << tr("Transaction") <<  tr("Address") << tr("Balance") << tr("Age") << tr("CoinDay") << tr("MintProbability") << tr("MintReward");
     priv->refreshWallet();
 
     QTimer *timer = new QTimer(this);
@@ -312,6 +312,8 @@ QVariant MintingTableModel::data(const QModelIndex &index, int role) const
             return formatTxCoinDay(rec);
         case MintProbability:
             return formatDayToMint(rec);
+        case MintReward:
+            return formatTxPoSReward(rec);
         }
         break;
       case Qt::TextAlignmentRole:
@@ -355,6 +357,8 @@ QVariant MintingTableModel::data(const QModelIndex &index, int role) const
             return static_cast<qlonglong>(rec->nValue);
         case MintProbability:
             return getDayToMint(rec);
+        case MintReward:
+            return formatTxPoSReward(rec);
         }
         break;
       case Qt::BackgroundColorRole:
@@ -475,6 +479,8 @@ QVariant MintingTableModel::headerData(int section, Qt::Orientation orientation,
             case CoinDay:
                 return tr("Coin age in the output.");
             case MintProbability:
+                return tr("Chance to mint a block within given time interval.");
+            case MintReward:
                 return tr("Chance to mint a block within given time interval.");            
             }
         }

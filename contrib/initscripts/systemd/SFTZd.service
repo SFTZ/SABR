@@ -1,11 +1,11 @@
 [Unit]
-Description=SABR daemon serivce
+Description=SFTZ daemon serivce
 After=network.target
 
 [Service]
 Type=simple
-User=SABR
-ExecStart=/opt/SABR/SABRd
+User=SFTZ
+ExecStart=/opt/SFTZ/SFTZd
 
 [Install]
 WantedBy=multi-user.target

@@ -1,0 +1,68 @@
+#!/bin/sh
+
+# PROVIDE: SFTZ
+# REQUIRE: LOGIN
+# KEYWORD: shutdown
+
+#
+# Add the following lines to /etc/rc.conf.local or /etc/rc.conf
+# to enable this service:
+#
+# SFTZ_enable (bool): Set to NO by default. Set this variable to YES if you want to enable SFTZ service.
+# SFTZ_config (path): Set to /usr/local/etc/SFTZ.conf by default.
+# SFTZ_user:  The user account SFTZ daemon runs as. It uses 'root' user by default.
+# SFTZ_group: The group account SFTZ daemon runs as. It uses 'wheel' group by default.
+# SFTZ_datadir (str): Default to "/var/db/SFTZ". Base data directory.
+
+. /etc/rc.subr
+
+name=SFTZ
+rcvar=SFTZ_enable
+
+: ${SFTZ_enable:=NO}
+: ${SFTZ_config=/usr/local/etc/SFTZ.conf}
+: ${SFTZ_datadir=/var/db/SFTZ}
+: ${SFTZ_user="root"}
+: ${SFTZ_group="wheel"}
+
+required_files=${SFTZ_config}
+command=/usr/local/bin/SFTZd
+SFTZ_chdir=${SFTZ_datadir}
+pidfile="${SFTZ_datadir}/SFTZd.pid"
+stop_cmd=SFTZ_stop
+command_args="-conf=${SFTZ_config} -datadir=${SFTZ_datadir} -daemon -pid=${pidfile}"
+start_precmd="${name}_prestart"
+
+SFTZ_create_datadir()
+{
+	echo "Creating data directory"
+	eval mkdir -p ${SFTZ_datadir}
+	[ $? -eq 0 ] && chown -R ${SFTZ_user}:${SFTZ_group} ${SFTZ_datadir}
+}
+
+SFTZ_prestart()
+{
+	if [ ! -d "${SFTZ_datadir}/." ]; then
+		SFTZ_create_datadir || return 1
+	fi
+}
+
+SFTZ_requirepidfile()
+{
+	if [ ! "0`check_pidfile ${pidfile} ${command}`" -gt 1 ]; then
+		echo "${name} not running? (check $pidfile)."
+		exit 1
+	fi
+}
+
+SFTZ_stop()
+{
+    SFTZ_requirepidfile
+
+	echo "Stopping ${name}."
+	eval ${command} -conf=${SFTZ_config} -datadir=${SFTZ_datadir} stop
+	wait_for_pids ${rc_pid}
+}
+
+load_rc_config $name
+run_rc_command "$1"

@@ -1,5 +1,5 @@
 TEMPLATE = app
-TARGET = sabr-qt
+TARGET = SFTZ-qt
 VERSION = 0.7.5
 INCLUDEPATH += src src/json src/qt
 QT += core gui network
@@ -446,11 +446,11 @@ isEmpty(OPENSSL_INCLUDE_PATH) {
 }
 
 isEmpty(BOOST_LIB_PATH) {
-    macx:BOOST_LIB_PATH = /opt/local/lib
+    macx:BOOST_LIB_PATH = /usr/local/opt/boost@1.60/lib
 }
 
 isEmpty(BOOST_INCLUDE_PATH) {
-    macx:BOOST_INCLUDE_PATH = /opt/local/include
+    macx:BOOST_INCLUDE_PATH = /usr/local/opt/boost@1.60/include
 }
 
 windows:DEFINES += WIN32
@@ -479,7 +479,7 @@ macx:OBJECTIVE_SOURCES += src/qt/macdockiconhandler.mm \
 macx:LIBS += -framework Foundation -framework ApplicationServices -framework AppKit
 macx:DEFINES += MAC_OSX MSG_NOSIGNAL=0
 macx:ICON = src/qt/res/icons/bitcoin.icns
-macx:TARGET = "sabr-qt"
+macx:TARGET = "SFTZ-qt"
 macx:QMAKE_CFLAGS_THREAD += -pthread
 macx:QMAKE_LFLAGS_THREAD += -pthread
 macx:QMAKE_CXXFLAGS_THREAD += -pthread
